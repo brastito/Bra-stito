@@ -1,1 +1,475 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>Trading Hub | Bra Steto Scam Alerts</title>
+<style>
+:root{--bg:#080808;--panel:#171717;--gold:#f4a51c;--text:#f5f5f5;--muted:#aaa;--line:#333}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.wrap{width:92%;max-width:1150px;margin:auto}
+.topbar{background:var(--gold);color:#111;text-align:center;padding:8px;font-size:12px;font-weight:bold;letter-spacing:1px}
+header{position:sticky;top:0;z-index:10;background:#080808ed;border-bottom:1px solid #292929}
+.nav{min-height:75px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-size:25px;font-weight:900}
+.logo span{background:var(--gold);color:#111;padding:2px 7px;border-radius:4px}
+nav{display:flex;gap:18px;font-size:14px}
+nav a:hover{color:var(--gold)}
+.btn{display:inline-block;background:var(--gold);color:#111;border:0;border-radius:8px;padding:12px 17px;font-weight:bold}
+.btn.dark{background:#242424;color:white;border:1px solid #444}
+.hero{padding:75px 0;background:radial-gradient(ellipse at 80% 20%,#f4a51c20,transparent 40%)}
+.heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}
+.eyebrow{color:var(--gold);font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(42px,6vw,75px);line-height:1.04;letter-spacing:-3px;margin:15px 0}
+h1 span,h2 span{color:var(--gold)}
+.lead{font-size:18px;color:#bbb;max-width:650px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:23px}
+.profile{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.avatar{width:65px;height:65px;display:grid;place-items:center;border-radius:50%;background:#050505;border:3px solid #1769ff;color:var(--gold);font-weight:bold;text-align:center}
+.profile h3{margin:0}
+.muted{color:var(--muted);font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:#0b0b0b;border:1px solid #333;border-radius:10px;padding:12px 7px;text-align:center}
+.stat strong{display:block;color:var(--gold);font-size:22px}
+.notice{background:#292014;border-left:3px solid var(--gold);padding:12px;margin-top:15px;font-size:13px;color:#ead7ae}
+section{padding:55px 0}
+.alt{background:#101010;border-block:1px solid #222}
+.heading{margin-bottom:25px}
+.heading h2{font-size:clamp(28px,4vw,43px);margin:5px 0}
+.heading p{color:var(--muted);margin:0}
+.search{display:flex;gap:10px;margin:25px 0 15px}
+.search input,.field input,.field select,.field textarea,.chatInput{width:100%;padding:13px;background:#0a0a0a;color:white;border:1px solid #444;border-radius:8px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--gold)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filter{border:1px solid #444;border-radius:30px;background:#202020;color:white;padding:8px 13px}
+.filter.active{background:var(--gold);color:#111;font-weight:bold}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.entry{background:var(--panel);border:1px solid #333;border-radius:12px;padding:17px;overflow-wrap:anywhere}
+.entry h3{margin:0 0 8px}
+.tag{display:inline-block;background:#352b18;color:#ffd166;padding:4px 8px;border-radius:5px;font-size:11px;font-weight:bold;margin:5px 0 10px}
+.entry p{font-size:13px;color:#bbb}
+.entry button{border:1px solid #555;background:#252525;color:white;border-radius:7px;padding:7px 10px}
+.empty{display:none;padding:25px;text-align:center;border:1px dashed #555;color:#bbb}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{margin:14px 0}
+.field label{display:block;font-weight:bold;font-size:13px;margin-bottom:6px}
+.field textarea{min-height:115px;resize:vertical}
+.upload{padding:15px;border:1px dashed #555;border-radius:9px}
+.preview{display:none;max-width:100%;max-height:220px;margin-top:12px;border-radius:8px}
+.small{font-size:12px;color:#999}
+.updates{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.update{background:#191919;border:1px solid #333;border-radius:12px;padding:18px}
+.update h3{margin:5px 0}
+.update p{font-size:13px;color:#aaa}
+.chat{background:#111;border:1px solid #383838;border-radius:12px;overflow:hidden}
+.chatHead{background:#222;padding:14px;font-weight:bold}
+.messages{padding:15px;min-height:150px;max-height:260px;overflow:auto}
+.message{background:#252525;padding:10px;border-radius:8px;margin-bottom:10px;font-size:13px;overflow-wrap:anywhere}
+.message strong{display:block;color:var(--gold)}
+.chatForm{display:flex;gap:8px;padding:12px;border-top:1px solid #333}
+.chatForm input{min-width:0;flex:1}
+footer{border-top:1px solid #333;padding:25px 0;color:#999;font-size:12px}
+@media(max-width:800px){.heroGrid,.two{grid-template-columns:1fr}.results,.updates{grid-template-columns:repeat(2,1fr)}nav{display:none}}
+@media(max-width:520px){.results,.updates{grid-template-columns:1fr}.hero{padding:45px 0}.search{flex-direction:column}.nav{min-height:65px}.logo{font-size:21px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">TRADING HUB ALERT DESK • CHECK BEFORE YOU TRUST</div>
+
+<header>
+<div class="wrap nav">
+<a class="logo" href="#home">Trading<span>hub</span></a>
+<nav>
+<a href="#check">Search</a>
+<a href="#alerts">Alerts</a>
+<a href="#report">Report</a>
+<a href="#community">Community</a>
+</nav>
+<a class="btn" href="#report">+ Report</a>
+</div>
+</header>
+
+<main>
+<section class="hero" id="home">
+<div class="wrap heroGrid">
+<div>
+<div class="eyebrow">Bra Steto • Forex Scam Exposer</div>
+<h1>Check before<br>you <span>trust.</span></h1>
+<p class="lead">Your community platform to search forex traders, mentors, brokers, prop firms and investment schemes before risking your money.</p>
+<div class="actions">
+<a class="btn" href="#check">Search the Watchlist</a>
+<a class="btn dark" href="#report">Report a Concern</a>
+</div>
+<p class="small">A name appearing on this initial watchlist is not proof of wrongdoing. Entries require evidence and fair review.</p>
+</div>
+
+<div class="card">
+<div class="profile">
+<div class="avatar">Trading<br>hub</div>
+<div>
+<h3>Trading hub</h3>
+<div class="muted">Bra Steto · Community Alerts</div>
+<div class="muted">Inform. Verify. Protect.</div>
+</div>
+</div>
+<div class="stats">
+<div class="stat"><strong id="traderCount">28</strong><span class="small">Trader leads</span></div>
+<div class="stat"><strong>3</strong><span class="small">Broker leads</span></div>
+<div class="stat"><strong>3</strong><span class="small">Prop firms</span></div>
+</div>
+<div class="notice"><b>Important:</b> Verify evidence, company details and official regulator records before making a decision.</div>
+</div>
+</div>
+</section>
+
+<section class="alt" id="check">
+<div class="wrap">
+<div class="heading">
+<div class="eyebrow">Name verification</div>
+<h2>Search the <span>watchlist</span></h2>
+<p>Enter a name or handle to check whether it appears in this website's list.</p>
+</div>
+
+<div class="search">
+<input id="searchInput" placeholder="Search trader, mentor, broker or prop firm..." aria-label="Search watchlist">
+<button class="btn" onclick="render()">Search</button>
+</div>
+
+<div class="filters">
+<button class="filter active" data-filter="All">All</button>
+<button class="filter" data-filter="Trader / Mentor">Traders & Mentors</button>
+<button class="filter" data-filter="Broker">Brokers</button>
+<button class="filter" data-filter="Prop Firm">Prop Firms</button>
+</div>
+
+<p class="small" id="resultCount"></p>
+<div class="results" id="results"></div>
+<div class="empty" id="empty">No matching name found in this watchlist. That does not guarantee that a person or company is safe.</div>
+</div>
+</section>
+
+<section id="alerts">
+<div class="wrap">
+<div class="heading">
+<div class="eyebrow">Latest updates</div>
+<h2>Scam alerts & <span>community news</span></h2>
+<p>Publish dated, evidence-based updates here after review.</p>
+</div>
+<div class="updates">
+<div class="update">
+<h3>⚠ Watchlist review</h3>
+<p>Initial names are awaiting verification. No finding is established by inclusion on this starter list.</p>
+<span class="tag">REVIEW PENDING</span>
+</div>
+<div class="update">
+<h3>✓ Check regulation</h3>
+<p>Check the exact legal entity and its licence permissions using the relevant regulator's official register.</p>
+<a href="https://www.fsca.co.za/" target="_blank" rel="noopener" style="color:#f4a51c">Visit FSCA ↗</a>
+</div>
+<div class="update">
+<h3>🛡 Protect your money</h3>
+<p>Beware of guaranteed profits, pressure to pay immediately and extra payments demanded to unlock withdrawals.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="alt" id="report">
+<div class="wrap">
+<div class="heading">
+<div class="eyebrow">Community reports</div>
+<h2>Report a <span>concern</span></h2>
+<p>Provide the name, social handle, details and an optional screenshot.</p>
+</div>
+
+<div class="two">
+<form class="card" id="reportForm">
+<div class="field">
+<label for="reportName">Person or company name *</label>
+<input id="reportName" required maxlength="100" placeholder="Enter full name">
+</div>
+<div class="field">
+<label for="reportHandle">Instagram, Facebook or website</label>
+<input id="reportHandle" maxlength="180" placeholder="@handle or website">
+</div>
+<div class="field">
+<label for="reportType">Category *</label>
+<select id="reportType" required>
+<option value="">Select category</option>
+<option>Trader / Mentor</option>
+<option>Broker</option>
+<option>Prop Firm</option>
+<option>Investment Scheme</option>
+<option>Other</option>
+</select>
+</div>
+<div class="field">
+<label for="reportDetails">Explain what happened *</label>
+<textarea id="reportDetails" required maxlength="2000" placeholder="Include dates, what was promised, what happened, and what evidence you have."></textarea>
+</div>
+<div class="field">
+<label for="reportPhoto">Take a photo or upload a screenshot</label>
+<div class="upload">
+<input type="file" id="reportPhoto" accept="image/*" capture="environment">
+<img id="preview" class="preview" alt="Evidence image preview">
+<p class="small">Image preview only in this demo. A live website needs secure upload storage.</p>
+</div>
+</div>
+<div class="field">
+<label for="reportContact">Your contact (optional)</label>
+<input id="reportContact" maxlength="150" placeholder="Email or social handle">
+</div>
+<label class="small">
+<input type="checkbox" id="confirm" required>
+I confirm that this report is truthful to the best of my knowledge.
+</label>
+<br><br>
+<button class="btn" type="submit">Save Report Draft</button>
+<p class="small">This demo does not send your report to the website owner or publish it publicly.</p>
+</form>
+
+<div class="card">
+<h3>How to report responsibly</h3>
+<p class="muted">Help the community by submitting factual, verifiable information.</p>
+<h4>01. Include evidence</h4>
+<p class="small">Include relevant dates, public links, agreements and transaction evidence with private details hidden.</p>
+<h4>02. Protect privacy</h4>
+<p class="small">Never upload passwords, identity documents, bank account details or unrelated people's private information.</p>
+<h4>03. Fair review</h4>
+<p class="small">Reports should be reviewed before publication. Give the subject an opportunity to respond when appropriate.</p>
+<h4>04. Verify licences</h4>
+<p class="small">A company not appearing in one search is not automatically proof of fraud. Confirm its exact legal name and jurisdiction.</p>
+<div class="notice">Reports are allegations until independently verified. Do not use this website to harass or threaten anyone.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="community">
+<div class="wrap">
+<div class="heading">
+<div class="eyebrow">Trading community</div>
+<h2>Community <span>group chat</span></h2>
+<p>This chat is a local demonstration, not a shared live group.</p>
+</div>
+<div class="two">
+<div class="chat">
+<div class="chatHead">💬 Trading Hub Lounge · Demo</div>
+<div class="messages" id="messages">
+<div class="message"><strong>Trading Hub Notice</strong>Welcome! Keep discussions factual, respectful and evidence-based.</div>
+</div>
+<form class="chatForm" id="chatForm">
+<input class="chatInput" id="chatInput" maxlength="240" required placeholder="Write a message...">
+<button class="btn">Send</button>
+</form>
+</div>
+<div class="card">
+<h3>Community rules</h3>
+<p class="small">• Share facts, not rumours.</p>
+<p class="small">• No threats, harassment or doxxing.</p>
+<p class="small">• Don't present unverified allegations as proven facts.</p>
+<p class="small">• Respect corrections and the right of reply.</p>
+<p class="small">For a real shared chat, connect a moderated chat service or a secure realtime backend.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="alt">
+<div class="wrap">
+<div class="heading"><h2>Before you <span>pay</span></h2></div>
+<div class="updates">
+<div class="update"><h3>01 · Identity</h3><p>Confirm the legal company name, registration details and payment recipient.</p></div>
+<div class="update"><h3>02 · Licence</h3><p>Verify regulatory permissions directly through the appropriate official register.</p></div>
+<div class="update"><h3>03 · Withdrawals</h3><p>Read payout rules and fees. Be cautious about guaranteed returns and unexpected withdrawal fees.</p></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<strong style="color:#f4a51c">Trading Hub · Bra Steto</strong>
+<p>Inform. Verify. Protect.</p>
+<p>Community reports must be reviewed. This website is not a regulator or a court.</p>
+<p>© <span id="year"></span> Trading Hub</p>
+</div>
+</footer>
+
+<script>
+const entries = [
+["Bandile Lugayeni","Trader / Mentor"],
+["Pluto FX","Trader / Mentor"],
+["Ntheri Nasdaq","Trader / Mentor"],
+["Lincoln Komape","Trader / Mentor"],
+["Zakes nas100","Trader / Mentor"],
+["Nas100ape","Trader / Mentor"],
+["Nasdaq Ninja","Trader / Mentor"],
+["Prince yrk","Trader / Mentor"],
+["Sello ledwaba","Trader / Mentor"],
+["Casey Fuego","Trader / Mentor"],
+["Taylor Nasdaq","Trader / Mentor"],
+["Kiingtee","Trader / Mentor"],
+["Yanadahswings","Trader / Mentor"],
+["Jason noah","Trader / Mentor"],
+["Godfrey","Trader / Mentor"],
+["Skaradeep","Trader / Mentor"],
+["Mr nasdaq","Trader / Mentor"],
+["Aiden","Trader / Mentor"],
+["Prettyboikev","Trader / Mentor"],
+["Precision","Trader / Mentor"],
+["Starboy","Trader / Mentor"],
+["Peace finisher","Trader / Mentor"],
+["Maps thosago","Trader / Mentor"],
+["Sfiso nini","Trader / Mentor"],
+["Belly forextrader","Trader / Mentor"],
+["Marco grassini","Trader / Mentor"],
+["FX goat","Trader / Mentor"],
+["Eddie 911","Trader / Mentor"],
+["Trade 245","Broker"],
+["Vault Market","Broker"],
+["RCG Market","Broker"],
+["Equity Edge","Prop Firm"],
+["Goat Funded Trader","Prop Firm"],
+["Commit Capital","Prop Firm"]
+].map(([name,category])=>({name,category}));
+
+let activeFilter="All";
+const results=document.getElementById("results");
+const searchInput=document.getElementById("searchInput");
+
+function escapeHTML(value){
+ return String(value).replace(/[&<>"']/g,char=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ })[char]);
+}
+
+function render(){
+ const query=searchInput.value.trim().toLowerCase();
+ const found=entries.filter(item=>{
+  const matchesCategory=activeFilter==="All"||item.category===activeFilter;
+  const matchesName=item.name.toLowerCase().includes(query);
+  return matchesCategory&&matchesName;
+ });
+
+ results.innerHTML=found.map(item=>`
+  <article class="entry">
+   <h3>${escapeHTML(item.name)}</h3>
+   <span class="tag">${escapeHTML(item.category)} · REVIEW PENDING</span>
+   <p>This name is on the initial community watchlist. No verified finding is attached. Check independently.</p>
+   <button type="button" onclick="reportName('${escapeHTML(item.name)}','${escapeHTML(item.category)}')">Report details</button>
+  </article>
+ `).join("");
+
+ document.getElementById("resultCount").textContent=
+  found.length+" matching entr"+(found.length===1?"y":"ies")+" · Entries await verification";
+
+ document.getElementById("empty").style.display=found.length?"none":"block";
+}
+
+document.querySelectorAll("[data-filter]").forEach(button=>{
+ button.addEventListener("click",()=>{
+  activeFilter=button.dataset.filter;
+  document.querySelectorAll("[data-filter]").forEach(b=>b.classList.toggle("active",b===button));
+  render();
+ });
+});
+
+searchInput.addEventListener("input",render);
+
+function reportName(name,category){
+ document.getElementById("reportName").value=name;
+ document.getElementById("reportType").value=category;
+ document.getElementById("report").scrollIntoView({behavior:"smooth"});
+}
+
+document.getElementById("reportPhoto").addEventListener("change",event=>{
+ const file=event.target.files[0];
+ const preview=document.getElementById("preview");
+
+ if(!file){
+  preview.style.display="none";
+  return;
+ }
+
+ if(!file.type.startsWith("image/")){
+  alert("Please select an image.");
+  event.target.value="";
+  return;
+ }
+
+ if(file.size>8*1024*1024){
+  alert("Choose an image smaller than 8 MB.");
+  event.target.value="";
+  return;
+ }
+
+ preview.src=URL.createObjectURL(file);
+ preview.style.display="block";
+});
+
+document.getElementById("reportForm").addEventListener("submit",event=>{
+ event.preventDefault();
+
+ if(!document.getElementById("confirm").checked)return;
+
+ const report={
+  name:document.getElementById("reportName").value.trim(),
+  handle:document.getElementById("reportHandle").value.trim(),
+  category:document.getElementById("reportType").value,
+  details:document.getElementById("reportDetails").value.trim(),
+  contact:document.getElementById("reportContact").value.trim(),
+  date:new Date().toISOString()
+ };
+
+ try{
+  const saved=JSON.parse(localStorage.getItem("tradingHubDrafts")||"[]");
+  saved.push(report);
+  localStorage.setItem("tradingHubDrafts",JSON.stringify(saved));
+  alert("Report saved as a private draft in this browser. It has NOT been sent to Bra Steto.");
+  event.target.reset();
+  document.getElementById("preview").style.display="none";
+ }catch(error){
+  alert("Could not save the draft. Copy your report before leaving this page.");
+ }
+});
+
+document.getElementById("chatForm").addEventListener("submit",event=>{
+ event.preventDefault();
+ const input=document.getElementById("chatInput");
+ const text=input.value.trim();
+ if(!text)return;
+
+ const message=document.createElement("div");
+ message.className="message";
+
+ const sender=document.createElement("strong");
+ sender.textContent="You · Demo";
+
+ message.appendChild(sender);
+ message.appendChild(document.createTextNode(text));
+
+ document.getElementById("messages").appendChild(message);
+ input.value="";
+ document.getElementById("messages").scrollTop=999999;
+});
+
+document.getElementById("traderCount").textContent=
+ entries.filter(item=>item.category==="Trader / Mentor").length;
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+render();
+</script>
+</body>
+</html>
+
